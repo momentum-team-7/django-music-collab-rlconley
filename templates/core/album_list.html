@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for album in albums %} 
+<li><a href="{% url 'album-detail' album.pk %}">{{album}} PK:{{album.pk}}</a></li>
+{% endfor %}
+
+{% endblock content %}
