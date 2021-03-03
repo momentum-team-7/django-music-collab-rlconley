@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="home"),
     path('albums/<int:pk>/', views.album_detail, name="album-detail"),
+    path('artists/new', views.add_artist, name="add-artist")
 ]
 
 if settings.DEBUG:
