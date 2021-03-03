@@ -4,11 +4,10 @@
 
 <h1>{{album}}</h1>
 <ul>
-    <li>{{album.title}}</li>
     <li>{{album.artist}}</li>
     {% if album.release_year %}
         <li>{{album.release_year}}</li>
     {% endif %}
 </ul>
-
+<a href='/'class="button is-link is-focused">Home</a> 
 {% endblock content %}

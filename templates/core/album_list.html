@@ -2,8 +2,11 @@
 
 {% block content %}
 
+<h1 class="title">My Albums</h1>
 {% for album in albums %} 
-<li><a href="{% url 'album-detail' album.pk %}">{{album}} PK:{{album.pk}}</a></li>
+<div class="card">
+<div class="card-title"><a href="{% url 'album-detail' album.pk %}">{{album}}</a></div>
+</div>
 {% endfor %}
 
 {% endblock content %}
