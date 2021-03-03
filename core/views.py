@@ -48,4 +48,5 @@ def edit_artist(request, pk):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = ArtistForm(instance=artist)
+    return render(request, 'core/edit_artist.html', {'form': form, 'artist':artist })
 
