@@ -24,6 +24,8 @@ urlpatterns = [
     path('albums/<int:pk>/', views.album_detail, name="album-detail"),
     path('artists/new', views.add_artist, name="add-artist"),
     path('artists/<int:pk>/edit', views.edit_artist, name="edit-artist"),
+    path('artists/<int:pk>/delete', views.delete_artist, name="delete-artist"),
+
 ]
 
 if settings.DEBUG:

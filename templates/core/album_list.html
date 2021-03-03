@@ -9,6 +9,16 @@
 </div>
 {% endfor %}
 
+<h1 class="title">My Artists</h1>
+{% for artist in artists %} 
+<div class="card">
+<div class="card-title">{{artist}}</div>
+<a href="{% url 'delete-artist' pk=artist.pk%}" class="button is-warning is-focused">Delete Artist</a> 
+
+</div>
+{% endfor %}
+
+
 <a href="{% url 'add-artist' %}" class="button is-success is-focused">Add Artist</a> 
 
 {% endblock content %}

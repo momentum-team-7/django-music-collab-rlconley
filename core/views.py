@@ -6,7 +6,8 @@ from .models import Album, Artist
 # Create your views here.
 def index(request):
     albums = Album.objects.all()
-    return render(request, 'core/album_list.html', {'albums': albums})
+    artists = Artist.objects.all()
+    return render(request, 'core/album_list.html', {'albums': albums, 'artists': artists})
 
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
@@ -49,4 +50,10 @@ def edit_artist(request, pk):
     else:
         form = ArtistForm(instance=artist)
     return render(request, 'core/edit_artist.html', {'form': form, 'artist':artist })
+
+def delete_artist(request, pk):
+    artist = get_object_or_404(Artist, pk=pk)
+    artist.delete()
+    return HttpResponseRedirect('/')
+
 
