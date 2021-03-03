@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.index, name="home"),
     path('albums/<int:pk>/', views.album_detail, name="album-detail"),
     path('artists/new', views.add_artist, name="add-artist")
+    path('artists/<int:pk>/edit', views.add_artist, name="edit-artist")
 ]
 
 if settings.DEBUG:
