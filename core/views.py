@@ -5,7 +5,7 @@ from .models import Album, Artist
 
 # Create your views here.
 def index(request):
-    albums = Album.objects.all()
+    albums = Album.objects.filter(user=request.user)
     artists = Artist.objects.all()
     return render(request, 'core/album_list.html', {'albums': albums, 'artists': artists})
 
