@@ -4,21 +4,31 @@
 
 <h1 class="title">My Albums</h1>
 {% for album in albums %} 
-<div class="card">
-<div class="card-title"><a href="{% url 'album-detail' album.pk %}">{{album}}</a></div>
-</div>
+    <article class="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
+        <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">{{album}}</h1>
+        <div class="pa3 bt b--black-10">
+          <p class="f6 f5-ns lh-copy measure">
+            ALBUM DESCRIPTION
+          </p>
+        </div>
+      </article>
+
 {% endfor %}
 
 <h1 class="title">My Artists</h1>
 {% for artist in artists %} 
-<div class="card">
-<div class="card-title">{{artist}}</div>
-<a href="{% url 'delete-artist' pk=artist.pk%}" class="button is-warning is-focused">Delete Artist</a> 
+<article class="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
+    <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">{{artist}}</h1>
+    <div class="pa3 bt b--black-10">
+      <p class="f6 f5-ns lh-copy measure">
+        ARTIST BIO
+      </p>
+    </div>
+    <div class="button is-warning is-focused delete-button" id={{artist.pk}}>Delete Artist</div> 
+  </article>
 
 </div>
 {% endfor %}
-
-
-<a href="{% url 'add-artist' %}" class="button is-success is-focused">Add Artist</a> 
+<div class="button is-success is-focused"><a href="{% url 'add-artist' %}">Add Artist</a></div>
 
 {% endblock content %}

@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from .forms import ArtistForm
 from .models import Album, Artist
@@ -54,8 +54,16 @@ def edit_artist(request, pk):
     return render(request, 'core/edit_artist.html', {'form': form, 'artist':artist })
 
 def delete_artist(request, pk):
-    artist = get_object_or_404(Artist, pk=pk)
-    artist.delete()
-    return HttpResponseRedirect('/')
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        artist = get_object_or_404(Artist, pk=pk)
+        artist.delete()
+        data = {
+            'deleted': 'YES'
+        }
+    else:
+        data = {
+            'deleted':'ABSOLUTELY NOT'
+        }
+    return JsonResponse(data)
 
 
